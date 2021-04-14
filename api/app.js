@@ -16,6 +16,7 @@ app.use(bodyParser.json());
 // CORS HEADERS MIDDLEWARE
 app.use(function (req, res, next) {
     res.header("Access-Control-Allow-Origin", "http://localhost:4200"); // update to match the domain you will make the request from
+    res.header("Access-Control-Allow-Methods", "GET, POST, HEAD, OPTIONS, PUT, PATCH, DELETE");
     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
     next();
 });
@@ -132,7 +133,7 @@ app.patch('/lists/:listId/tasks/:taskId', (req, res) => {
         $set: req.body
     }
     ).then(() => {
-        res.sendStatus(200);
+        res.send({ messgae: 'Updated successfully' });
     })
 });
 

@@ -1,5 +1,6 @@
 export class Task {
-    _id: string | undefined;
-    _listId: string | undefined;
-    title: string | undefined;
+    _id: string = '';
+    _listId: string = '';
+    title: string = '';
+    completed: boolean = false;
 }
