@@ -9,7 +9,7 @@ import { shareReplay, tap } from 'rxjs/operators'
 })
 export class AuthService {
 
-  constructor(private webService: WebRequestService, private router: Router, private httpClient: HttpClient) { }
+  constructor(private webService: WebRequestService, private router: Router, private http: HttpClient) { }
 
   login(email: string, password: string) {
     return this.webService.login(email, password).pipe(
@@ -38,7 +38,7 @@ export class AuthService {
     localStorage.setItem('x-access-token', accessToken);
   }
   
-  private setSession(userId: string, accessToken: string, refreshToken: string ) {
+  private setSession(userId: string, accessToken: any, refreshToken: any ) {
     localStorage.setItem('user-id', userId);
     localStorage.setItem('access-token', accessToken);
     localStorage.setItem('refresh-token', refreshToken);
